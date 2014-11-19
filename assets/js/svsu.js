@@ -1,7 +1,7 @@
 //revealing module pattern
 //http://addyosmani.com/resources/essentialjsdesignpatterns/book/#revealingmodulepatternjavascript
 
-var svsu = (function(){
+var svsu = svsu || (function(){
 
   var api_base = 'https://api.svsu.edu/',
       renderCourse = _.template('<%= title %>'),

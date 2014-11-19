@@ -1,3 +1,7 @@
+jQuery(document).ready(function(){
+  svsu.setTemplate(jQuery('#pretty-course-template').html());
+});
+
 jQuery('#lookupForm').on('click', '#fetchJSON', function(event){
 
   event.preventDefault();

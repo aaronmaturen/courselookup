@@ -4,6 +4,7 @@
 var svsu = (function(){
 
   var api_base = 'https://api.svsu.edu/',
+      renderCourse = _.template(jQuery('#pretty-course-template').html()),
       course_template = '<div><%= title %> - <%= section %></div>';
 
   function buildCourseURI(data) {
@@ -19,7 +20,7 @@ var svsu = (function(){
 
   function formatHTML(data) {
     return _.map(data.courses, function(course){
-      return courseToHTML(course);
+      return renderCourse(course);
     });
   }
 

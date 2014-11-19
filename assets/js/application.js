@@ -7,6 +7,8 @@ jQuery('#lookupForm').on('click', '#fetchJSON', function(event){
       route = svsu.buildCourseURI();
 
   $icon.removeClass('fa-code').addClass('fa-spinner').addClass('fa-spin');
+  jQuery('#jsonResults .response').text('');
+  jQuery('#prettyResults').hide();
 
   jQuery.ajax({
     data: data,
@@ -35,6 +37,8 @@ jQuery('#lookupForm').on('click', '#fetchPretty', function(event){
       route = svsu.buildCourseURI();
 
   $icon.removeClass('fa-paint-brush').addClass('fa-spinner').addClass('fa-spin');
+  jQuery('#prettyResults .response').text('');
+  jQuery('#jsonResults').hide();
 
   jQuery.ajax({
     data: data,

@@ -3,7 +3,8 @@
 
 var svsu = (function(){
 
-  var api_base = 'https://api.svsu.edu/';
+  var api_base = 'https://api.svsu.edu/',
+      course_template = '<div><%= title %> - <%= section %></div>';
 
   function buildCourseURI(data) {
     if(data){
@@ -12,13 +13,24 @@ var svsu = (function(){
     return api_base + 'courses';
   }
 
+  function courseToHTML(course) {
+    return _.template(course_template, course);
+  }
+
+  function formatHTML(data) {
+    return _.map(data.courses, function(course){
+      return courseToHTML(course);
+    });
+  }
+
   function formatJSON(json) {
     return JSON.stringify(json, null, 2);
   }
 
   return {
     buildCourseURI: buildCourseURI,
-    formatJSON: formatJSON
+    formatJSON: formatJSON,
+    formatHTML: formatHTML
   }
 
 })();
